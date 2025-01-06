@@ -17,6 +17,7 @@ import Toolbar from './chapter_09/Toolbar';
 import LandingPage from './chapter_09/LandingPage';
 import NumberList from './chapter_10/NumberList';
 import AttendanceBook from './chapter_10/AttendanceBook';
+import Header from './component/Header';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -40,7 +41,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
     {/* <MyEvent /> */}
     {/* <LandingPage /> */}
     {/* <NumberList numbers={[1,2,3,4,5]} /> */}
-    <AttendanceBook />
+    {/* <AttendanceBook /> */}
+    <App />
    </>
   </React.StrictMode>
   );
