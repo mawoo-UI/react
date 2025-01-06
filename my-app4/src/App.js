@@ -3,7 +3,7 @@ import Index from "./component/Index";
 import PostDetail from "./component/PostDetail";
 import Header from "./component/Header";
 import Posts from "./component/Posts";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
