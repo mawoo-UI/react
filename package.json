@@ -1,5 +1,7 @@
 {
-  "devDependencies": {
-    "web-vitals": "^4.2.4"
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "react-bootstrap": "^2.10.7"
   }
 }

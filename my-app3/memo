@@ -1,0 +1,40 @@
+useState
+
+useEffect
+--------------------
+ㄴ동작값으로 많이 씀
+
+.then()
+순차처리의 목적으로 쓰는것.
+
+fatch()는 window객체에 소속되어있음
+window.fetch()로 사용되기도 함
+
+비동기 호출시 브라우저가 정보를막음
+ㄴ도메인이달라도 안됌
+ㄴ포트가 달라도 안됌
+
+비동기코드를 순차코드로 만들어주는게 await
+
+
+
+
+
+1.CORS 처리 (origin issue) / security
+2. Re render 조건 : state, props 변화 감지
+3. useEffect
+4. js / promise, async await
+5. fetch, axios
+
+
+
+axios, react router dom
+jsonplaceholder
+
+
+
+
+useMemo
+useCallback
+
+useRef
