@@ -10,6 +10,12 @@ import Airbnb from './chapter_05_1/Airbnb';
 import NotificationList from './chapter_06/NotificationList';
 import Counter from './chapter_07/Counter';
 import MyArray from './chapter_07/MyArray';
+import MyEffect from './chapter_07/MyEffect';
+import MyEvent from './chapter_08/MyEvent';
+import Toggle from './chapter_08/Toggle';
+import LandingPage from './chapter_09/LandingPage';
+import AttendanceBook from './chapter_10/AttendanceBook';
+import NumberList from './chapter_10/NumberList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -27,7 +33,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
    {/* <NotificationList />
     */}
     {/* <Counter /> */}
-    <MyArray />
+    {/* <MyArray /> */}
+    {/* <MyEffect /> */}
+    {/* <MyEvent /> */}
+    {/* <Toggle /> */}
+    {/* <LandingPage /> */}
+    {/* <AttendanceBook /> */}
+    <NumberList />
    </>
   </React.StrictMode>
   );
