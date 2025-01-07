@@ -18,6 +18,7 @@ import AttendanceBook from './chapter_10/AttendanceBook';
 import NumberList from './chapter_10/NumberList';
 import MyForm from './chapter_11/MyForm';
 import Multiple from './chapter_11/Multiple';
+import Calculator from './chapter_12/Calculator';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -44,7 +45,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
     {/* <AttendanceBook /> */}
     {/* <NumberList /> */}
       {/* <MyForm /> */}
-      <Multiple />
+      {/* <Multiple /> */}
+      <Calculator />
    </>
   </React.StrictMode>
   );
