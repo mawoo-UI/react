@@ -40,7 +40,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
     {/* <Toggle /> */}
     {/* <LandingPage /> */}
     {/* <AttendanceBook /> */}
-    <NumberList />
+    {/* <NumberList /> */}
 
    </>
   </React.StrictMode>
