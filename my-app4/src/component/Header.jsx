@@ -1,8 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {Nav, Navbar, Container} from 'react-bootstrap';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
+  const location = useLocation();
+  console.log(location);
+  
   return (
     <div>
       {/* 
@@ -20,12 +23,12 @@ const Header = () => {
         <Container>
           <Navbar.Brand as={Link} to="/">React Sample Post</Navbar.Brand> 
 
-          <Nav variant="tabs" defaultActiveKey="link-0" className='me-auto'>
+          <Nav variant="pills" activeKey={location.pathname} className='me-auto'defaultActiveKey="/">
             <Nav.Item>
-              <Nav.Link as={Link} to="/" eventKey="link-0">Home</Nav.Link>
+              <Nav.Link as={Link} to="/" eventKey="/">Home</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={Link} to="/posts" eventKey="link-1">Post</Nav.Link>
+              <Nav.Link as={Link} to="/posts" eventKey="/posts" >Post</Nav.Link>
             </Nav.Item>
           </Nav>
         </Container>

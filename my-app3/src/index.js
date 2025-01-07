@@ -16,6 +16,7 @@ import Toggle from './chapter_08/Toggle';
 import LandingPage from './chapter_09/LandingPage';
 import AttendanceBook from './chapter_10/AttendanceBook';
 import NumberList from './chapter_10/NumberList';
+import MyForm from './chapter_11/MyForm';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -41,7 +42,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
     {/* <LandingPage /> */}
     {/* <AttendanceBook /> */}
     {/* <NumberList /> */}
-
+      <MyForm />
    </>
   </React.StrictMode>
   );
