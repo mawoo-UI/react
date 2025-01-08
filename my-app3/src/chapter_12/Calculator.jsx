@@ -59,7 +59,7 @@ const Calculator = () => {
         scale={"t"}
         temperature={fahrengeit}
         onTemperatureChange={handleFahrenheitChange} />
-        <BoilingVerdict celsius={parseFloat(celsius)} />
+      <BoilingVerdict celsius={parseFloat(celsius)} />
     </div>
   );
 }

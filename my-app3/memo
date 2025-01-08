@@ -31,6 +31,8 @@ window.fetch()로 사용되기도 함
 axios, react router dom
 jsonplaceholder
 
+클라이언트 측에서 로그아웃은
+갖고있던 토큰정보를 삭제하는것.
 
 
 
