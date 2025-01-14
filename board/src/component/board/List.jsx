@@ -8,8 +8,7 @@ const List = () => {
   const navigate = useNavigate();
   // effect
   useEffect(() => {
-    req('get', 'board/list');
-    req('get', 'board/list');
+    req('get', 'notes/listall');
   }, [req]);
 
   if(error) {
@@ -22,9 +21,9 @@ const List = () => {
 
   return (
     <div>
-      <button onClick={()=>navigate('/Write')}>글쓰기</button>
+      <button onClick={()=>navigate('/write')}>글쓰기</button>
       <ul>
-        {data.dtoList.map(b => <li key={b.bno}>{b.title}</li>)}
+        {data && data.map(b=> <li key={b.num}>{b.title}</li>)}
       </ul>
     </div>
   );
