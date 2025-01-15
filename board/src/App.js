@@ -5,6 +5,8 @@ import LoginForm from "./component/member/LoginForm";
 import Dashboard from "./component/common/Dashboard";
 import { AuthProvider } from "./hooks/AuthContext";
 import ProtectedRoute from "./component/common/ProtectedRoute";
+import View from "./component/board/View";
+import Modify from "./component/board/Modify";
 
 function App() {
   return( 
@@ -13,12 +15,22 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginForm />} />
         <Route path="/dashboard" element={<Dashboard />}/>
-        <Route path="/list" element={
+        <Route path="/notes" element={
           <ProtectedRoute>
             <List />
           </ProtectedRoute>
           }/>
-        <Route path="/Write" element={
+        <Route path="/notes/:num" element={
+          <ProtectedRoute>
+            <View />
+          </ProtectedRoute>
+         }/>
+        <Route path="/notes/:num" element={
+          <ProtectedRoute>
+            <Modify />
+          </ProtectedRoute>
+         }/>
+        <Route path="/write" element={
           <ProtectedRoute>
             <Write />
           </ProtectedRoute>
