@@ -45,8 +45,17 @@ const View = () => {
         <p>{data.content}</p>
         <p>{data.regdate}</p>
         <p>{data.writer}</p>
-        <Link to={`/modify/${data.num}`}><button>수저</button> </Link>
+        <Link to={`/modify/${data.num}`}><button>수정</button> </Link>
         <button onClick={handleeDelete}>삭제 </button>
+
+        <div>
+          <h3>attachs: {data.attchDtos.length}</h3>
+          <ul>
+            {data.attachDtos.map(a => <li key={a.uuid}><Link to={a.url}>{a.origin}</Link> </li>)}
+          </ul>
+        </div>
+        <Link to={`/notes/modify/${data.num}`}><button>수정</button> </Link>
+        <button onClick={handleeDelete}>삭제</button>
     </div>
   );
 }

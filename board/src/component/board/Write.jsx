@@ -6,7 +6,8 @@ import { useAuth } from "../../hooks/AuthContext";
 
 const Write = () => {
   const {email} = useAuth();
-  const [board, setBoard] = useState({title:'',content:'',writer:''}); //memberEmail:'a@b.c'
+  const [board, setBoard] = useState({title:'',content:'',writer:'', attachDtos:[]}); //memberEmail:'a@b.c'
+  const [uploaded, setUploaded] = useState([]);
   const navigate = useNavigate();
   const {req} =useAxios();
 
@@ -22,53 +23,51 @@ const Write = () => {
   const handeleSubmit = e => {
     e.preventDefault();
     console.log(board);
-    
-    req('post','board', board);
+
+    req('post','notes', {...board, attachDtos : uploaded});
 
     alert('글쓰기 성공');
-    navigate("/list");
+    // navigate("/notes");
+  }
 
     const handleFileUpload = async e => {
-      const file = e.target.files[0];
-      if (!file) {
-        alert("파일을 선택해주세요");
-        return;
-      }
-      const formData = new FormData();
-      formData.append("file", file);
+      const files = e.target.files;
+    if (!files)  return;
+    console.log(files);
+    const formData = new FormData();
     
-      try {
-          const headers ={
-            'Authorization':`Bearer ${file}`
-          } 
-            
-        const response = await fetch("http://localhost:8080/api/v1/file/upload", {
-          method: "POST",
-          body: formData,
-        });
+    // const arr = [];
+    for (let i = 0; i < files.length; i++) {
+      formData.append("files", files[i]);
+    }
     
-        const result = await response.json();
-        if (result.status === "success") {
-          console.log("File uploaded successfully:", result.data);
-        } else {
-          console.error("Upload failed:", result.message);
-        }
-      } catch (error) {
-        console.error("Error during upload:", error);
-      }
-    };
+    try {
+      const result = await req('post','file/upload', formData, {'Content-Type': 'multipart/form-data'});
+      // Response.json();
+      console.log(result);
+      setUploaded(result);
+    
 
-    <div >
+    } catch (error) {
+      console.error("Error during upload:", error);
+      // return;
+    }
+  };
+    return (
+      <div >
       <h1>Write</h1>
       <form onSubmit={handeleSubmit}>
 
         <input name="title" value={board.title} onChange={handeleChange}/>
         <input name="content" value={board.content} onChange={handeleChange}/>
         <input name="memberEmail" value={board.writer} onChange={handeleChange}/>
-        <input type="file"onClick={handleFileUpload} />
+        <input type="file"onClick={handleFileUpload} name="file" multiple />
         <button>글쓰기</button>
       </form>
+      <ul>
+        {uploaded.map(u => <li key={u.s3Key}>{u.s3Key}</li>)}
+      </ul>
     </div>
-  }
+    )
 }
 export default Write;
