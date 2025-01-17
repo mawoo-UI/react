@@ -5,6 +5,7 @@ import { useAuth } from '../../hooks/AuthContext';
 
 const View = () => {
   const {loading, error, req} = UseAxios();
+  // const {myloding:loading} = UseAxios();
   const param = useParams();
   const num = param.num;
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const View = () => {
 
   //effect 호출
   // const o = {email, num}
+
   useEffect(() => {
     
     (async () => {
@@ -43,7 +45,15 @@ const View = () => {
     navigate('/notes');
   }
 
+  //좋아요 토글
+  const handleLikesToggle = async e => {
+    e.preventDefault();
+    const ret = await req('post',`likes`, {email,num});
+    setMyLike(!myLike);
+    setNote({...note, likesCnt:note.likesCnt +(ret.result ? -1 : 1)})
+  }
   return note && (
+
     <div>
       <h1>View</h1>
 
@@ -56,7 +66,7 @@ const View = () => {
       <p style={{color:"white"}}>{note.memberEmail}</p>
       <p>작성일 : </p>
       <p style={{color:"white"}}>{note.regDate}</p>
-      <p><button>좋아요<span style={{color:"red"}}>{myLike ? '♥' : '♡' } </span>  {note.likesCnt}</button></p>
+      <p><button onClick={handleLikesToggle}>좋아요<span style={{color:"red"}}>{myLike ? '♥' : '♡' } </span> {note.likesCnt}</button></p>
 
       <div>
         <h3>첨부파일 : {note.attachDtos && note.attachDtos.length}개</h3>
