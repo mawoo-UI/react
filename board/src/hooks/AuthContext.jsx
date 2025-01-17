@@ -28,8 +28,9 @@ export const AuthProvider = ({children}) => {
     setEmail(null);
     setToken(null);
 
-    localStorage.removeItem('token');
-    localStorage.removeItem('email');
+    localStorage.removeItem('token', token);
+    localStorage.removeItem('email', email);
+
     navigate('/dashboard')
   }
 

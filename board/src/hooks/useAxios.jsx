@@ -21,7 +21,8 @@ const useAxios = (baseUrl = BASE_URL) => {
       const resp = await axios({
         method,
         url: `${baseUrl}${endpoint}`,
-        data:body,
+        method,
+        data: body,
         headers: {
           'Content-Type':'application/json',
           'Authorization':`Bearer ${token}`,
@@ -36,7 +37,7 @@ const useAxios = (baseUrl = BASE_URL) => {
       setLoading(false)
     }
   }, 
-  [baseUrl]);
+  [baseUrl, token]);
   
   return {data, loading , error, req}
   

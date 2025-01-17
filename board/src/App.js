@@ -15,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginForm />} />
         <Route path="/dashboard" element={<Dashboard />}/>
+        
         <Route path="/notes" element={
           <ProtectedRoute>
             <List />
@@ -25,7 +26,7 @@ function App() {
             <View />
           </ProtectedRoute>
          }/>
-        <Route path="/notes/:num" element={
+        <Route path="/notes/modify/:num" element={
           <ProtectedRoute>
             <Modify />
           </ProtectedRoute>
